@@ -1,10 +1,11 @@
 import './App.css';
 import { TypeAnimation } from 'react-type-animation';
-import Nav from './components/Nav';
-import About from './components/About';
-import Contact from './components/Contact';
-import Events from './components/Events';
-import Footer from './components/Footer';
+// import Nav from './components/Nav';
+// import About from './components/About';
+// import Contact from './components/Contact';
+// import Events from './components/Events';
+// import Footer from './components/Footer';
+import atn_logo from "./assets/ATN_logo.jpeg";
 
 
 
@@ -18,13 +19,13 @@ function App() {
 
 
     <section class="py-7">
-    <Nav />
+    {/* <Nav /> */}
 
 
         <div
           class="relative overflow-hidden bg-no-repeat bg-cover"
           style={{backgroundPosition: "50%",
-            backgroundImage: `url("https://aspyee.org/sites/default/files/2021-10/IT%20ED2.jpg")`,
+            backgroundImage: `url(${atn_logo})`,
             height: "500px"}}
             
           
@@ -38,11 +39,11 @@ function App() {
               <h1 class="text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight mb-12 uppercase leading-[1]">
               <span>We are </span>
               <TypeAnimation sequence={[
-                'Agile',
+                'Coming Soon',
                 2000,
-                'Adept',
+                'Coming Soon',
                 2000,
-                'Africa',
+                'Coming Soon',
                 2000,
               ]}
               speed={10}
@@ -51,7 +52,7 @@ function App() {
               repeat={Infinity}/>
                 </h1>
 
-                <a
+                {/* <a
                   href="#about"
                   type="button"
                   class="inline-block px-7 py-3 border-2 border-white text-white font-medium text-sm leading-snug uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
@@ -59,13 +60,14 @@ function App() {
                   data-mdb-ripple-color="light"
                 >
                   Get started
-                </a>
+                </a> */}
               </div>
             </div>
           </div>
         </div>
       </section>
-    <div id='about' className='py-7 '>
+      
+    {/* <div id='about' className='py-7 '>
       <About />
       </div>
     <div id='events' className='py-7 '>
@@ -77,9 +79,9 @@ function App() {
     </div>
 
     <div>
-              <Footer />
+              <Footer /> */}
     </div>
-    </div>
+    </div> 
   );
 }
 
