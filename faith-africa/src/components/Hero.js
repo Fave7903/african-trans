@@ -22,11 +22,11 @@ const Hero = () => {
               <h1 className="text-4xl md:text-6xl xl:text-7xl font-bold tracking-tight mb-12 uppercase leading-[1]">
               <span>We are </span>
               <TypeAnimation sequence={[
-                'Agile',
+                'Coming Soon',
                 2000,
-                'Adept',
+                'Coming Soon',
                 2000,
-                'Africa',
+                'Coming Soon',
                 2000,
               ]}
               speed={10}
