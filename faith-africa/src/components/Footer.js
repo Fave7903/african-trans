@@ -7,17 +7,17 @@ const Footer = () => {
     <div>
         
 
-<footer className="bg-[#3c1f1b] dark:bg-gray-900">
+<footer className="bg-[#3c1f1b] dark:bg-[#3c1f1b]">
     <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
               <a href="https://flowbite.com/" className="flex items-center">
-                  <img src={atn_logo} className="h-auto max-w-sm me-10" alt="FlowBite Logo" />
+                  <img src={atn_logo} className="h-auto lg:w-40 md:w-40" alt="ATN Logo" />
               </a>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
               <div>
-                  <h2 className="mb-6 text-sm font-semibold text-[#d97f38] uppercase dark:text-white">Resources</h2>
+                  <h2 className="mb-6 text-sm font-semibold text-[#d97f38] uppercase dark:text-[#d97f38]">Resources</h2>
                   <ul className="text-gray-500 dark:text-gray-400 font-medium">
                       <li className="mb-4">
                           <a href="https://flowbite.com/" className="hover:underline">Flowbite</a>
@@ -28,7 +28,7 @@ const Footer = () => {
                   </ul>
               </div>
               <div>
-                  <h2 className="mb-6 text-sm font-semibold text-[#d97f38] uppercase dark:text-white">Follow us</h2>
+                  <h2 className="mb-6 text-sm font-semibold text-[#d97f38] uppercase dark:text-[#d97f38]">Follow us</h2>
                   <ul className="text-gray-500 dark:text-gray-400 font-medium">
                       <li className="mb-4">
                           <a href="https://github.com/themesberg/flowbite" className="hover:underline ">Github</a>
@@ -39,7 +39,7 @@ const Footer = () => {
                   </ul>
               </div>
               <div>
-                  <h2 className="mb-6 text-sm font-semibold text-[#d97f38] uppercase dark:text-white">Legal</h2>
+                  <h2 className="mb-6 text-sm font-semibold text-[#d97f38] uppercase dark:text-[#d97f38]">Legal</h2>
                   <ul className="text-gray-500 dark:text-gray-400 font-medium">
                       <li className="mb-4">
                           <a href="#home" className="hover:underline">Privacy Policy</a>
@@ -53,7 +53,7 @@ const Footer = () => {
       </div>
       <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
       <div className="sm:flex sm:items-center sm:justify-between">
-          <span className="text-sm text-[#d97f38] sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" className="hover:underline">ATN</a>. All Rights Reserved.
+          <span className="text-sm text-[#d97f38] sm:text-center dark:text-[#d97f38]">© 2023 <a href="https://flowbite.com/" className="hover:underline">ATN</a>. All Rights Reserved.
           </span>
           <div className="flex mt-4 sm:justify-center sm:mt-0">
               <a href="#home" className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
