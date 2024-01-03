@@ -16,9 +16,9 @@ const About = () => {
       </div>
         
       <div data-aos="fade-left" className='flex justify-center'>
-        <h3 className='font-thin text-justify text-xl mx-1 my-5'>At African Transformation Network (ATN), our mission is crystal clear: to empower African youths to shape a transformative future for themselves and the world. Through innovative programs and impactful initiatives, we pave the way for young African minds to thrive and contribute meaningfully on a global scale.</h3>
+        <h3 className='font-thin text-justify text-xl mx-5 my-5'>At African Transformation Network (ATN), our mission is crystal clear: to empower African youths to shape a transformative future for themselves and the world. Through innovative programs and impactful initiatives, we pave the way for young African minds to thrive and contribute meaningfully on a global scale.</h3>
       </div>
-      <div data-aos="fade-up" className='mx-1 my-5 text-justify'>
+      <div data-aos="fade-up" className='mx-5 my-5 text-justify'>
       <ul className='grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-10'>
           <li><h5 className='text-lg font-semibold text-[#d97f38] mx-5 px-5'>Organizing Programs that propel growth</h5><p className='font-thin text-lg my-4'>We orchestrate an array of transformative events, from thought-provoking webinars and mentorship opportunities to immersive masterclasses and inspiring conferences. These avenues serve as dynamic platforms for learning, networking, and honing skills essential for personal and professional growth.</p></li>
           <li><h5 className='text-lg font-semibold text-[#d97f38] mx-5 px-5'>Creating Compelling Content for Change</h5><p className='font-thin text-lg my-4'>Harnessing the power of media, we curate engaging videos, insightful books, and specialized trainings. These resources are designed to empower and equip African youths with the knowledge and tools needed to succeed in today's ever-evolving world. Some of these training opportunities are available at a nominal cost to support our initiatives.</p></li>

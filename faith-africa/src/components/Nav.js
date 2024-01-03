@@ -3,10 +3,25 @@ import atn_logo from "../assets/ATN_logo.jpeg";
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
+  // const [isSticky, setIsSticky] = useState(false);
+
 
   const toggleAccordion = () => {
     setIsOpen(!isOpen);
   };
+
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const offset = window.scrollY;
+  //     setIsSticky(offset > 0);
+  //   };
+
+  //   window.addEventListener('scroll', handleScroll);
+
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll);
+  //   };
+  // }, []);
 
   return (
     <div>
@@ -17,7 +32,7 @@ const Nav = () => {
             <span className="self-center text-2xs font-semibold whitespace-nowrap">African<br />Transformation<br />Network</span>
           </a>
           <div className="hidden md:flex md:items-center md:space-x-4">
-            <a href="#home" className="text-[#d97f38] rounded hover:bg-[#3c1f1b] hover:text-[#d97f38] dark:text-[#d97f38] dark:hover:bg-[#3c1f1b] dark:hover:text-[#d97f38] dark:border-gray-700 py-2 px-4 md:py-0 md:px-0 md:hover:bg-transparent">Home</a>
+            <a href="#hero" className="text-[#d97f38] rounded hover:bg-[#3c1f1b] hover:text-[#d97f38] dark:text-[#d97f38] dark:hover:bg-[#3c1f1b] dark:hover:text-[#d97f38] dark:border-gray-700 py-2 px-4 md:py-0 md:px-0 md:hover:bg-transparent">Home</a>
             <a href="#about" className="text-[#d97f38] rounded hover:bg-[#3c1f1b] hover:text-[#d97f38] dark:text-[#d97f38] dark:hover:bg-[#3c1f1b] dark:hover:text-[#d97f38] dark:border-gray-700 py-2 px-4 md:py-0 md:px-0 md:hover:bg-transparent">About</a>
             <a href="#events" className="text-[#d97f38] rounded hover:bg-[#3c1f1b] hover:text-[#d97f38] dark:text-[#d97f38] dark:hover:bg-[#3c1f1b] dark:hover:text-[#d97f38] dark:border-gray-700 py-2 px-4 md:py-0 md:px-0 md:hover:bg-transparent">Events</a>
             <a href="#contact" className="text-[#d97f38] rounded hover:bg-[#3c1f1b] hover:text-[#d97f38] dark:text-[#d97f38] dark:hover:bg-[#3c1f1b] dark:hover:text-[#d97f38] dark:border-gray-700 py-2 px-4 md:py-0 md:px-0 md:hover:bg-transparent">Contact</a>
@@ -39,16 +54,18 @@ const Nav = () => {
           </div>
         </div>
       </nav>
+      <div className='pt-14 mt-3'>
       {isOpen && (
-        <div className="border rounded-md overflow-hidden sm:hidden">
+        <div className="border rounded-md overflow-hidden sm:hidden" id="navbar-sticky">
           <div className="border-t">
-            <a href="#home" className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700">Home</a>
-            <a href="#about" className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700">About</a>
-            <a href="#events" className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700">Events</a>
-            <a href="#contact" className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700">Contact</a>
+            <a href="#home" className="block py-2 px-4 text-[#d97f38] rounded hover:bg-[#3c1f1b]">Home</a>
+            <a href="#about" className="block py-2 px-4  text-[#d97f38] rounded hover:bg-[#3c1f1b]">About</a>
+            <a href="#events" className="block py-2 px-4  text-[#d97f38] rounded hover:bg-[#3c1f1b]">Events</a>
+            <a href="#contact" className="block py-2 px-4  text-[#d97f38] rounded hover:bg-[#3c1f1b]">Contact</a>
           </div>
         </div>
       )}
+      </div>
     </div>
   );
 };
