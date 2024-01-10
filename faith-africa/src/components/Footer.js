@@ -17,35 +17,38 @@ const Footer = () => {
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
               <div>
-                  <h2 className="mb-6 text-sm font-semibold text-[#d97f38] uppercase dark:text-[#d97f38]">Resources</h2>
+                  <h2 className="mb-6 text-sm font-semibold text-[#d97f38] uppercase dark:text-[#d97f38]">Get Involved</h2>
                   <ul className="text-gray-500 dark:text-gray-400 font-medium">
                       <li className="mb-4">
-                          <a href="https://flowbite.com/" className="hover:underline">Flowbite</a>
+                          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeTBNvZ3LxcPP0jGOcm1wFp7zJWMwI13i5xGevtxGFqZbkPWg/viewform?usp=sharing"
+                                   className="hover:underline">Our Community</a>
                       </li>
                       <li>
-                          <a href="https://tailwindcss.com/" className="hover:underline">Tailwind CSS</a>
+                          <a href="#about" className="hover:underline">About Us</a>
                       </li>
                   </ul>
               </div>
               <div>
-                  <h2 className="mb-6 text-sm font-semibold text-[#d97f38] uppercase dark:text-[#d97f38]">Follow us</h2>
+                  <h2 className="mb-6 text-sm font-semibold text-[#d97f38] uppercase dark:text-[#d97f38]">Contact us</h2>
                   <ul className="text-gray-500 dark:text-gray-400 font-medium">
                       <li className="mb-4">
-                          <a href="https://github.com/themesberg/flowbite" className="hover:underline ">Github</a>
+                          <a href="https://www.linkedin.com/company/african-transformation-network" className="hover:underline ">LinkedIn</a>
                       </li>
                       <li>
-                          <a href="https://discord.gg/4eeurUVvTy" className="hover:underline">Discord</a>
+                          <a href="mailto:africantransformationnetwork1@gmail.com" className="hover:underline">Email</a>
                       </li>
                   </ul>
               </div>
               <div>
-                  <h2 className="mb-6 text-sm font-semibold text-[#d97f38] uppercase dark:text-[#d97f38]">Legal</h2>
+                  <h2 className="mb-6 text-sm font-semibold text-[#d97f38] uppercase dark:text-[#d97f38]">Support us</h2>
                   <ul className="text-gray-500 dark:text-gray-400 font-medium">
                       <li className="mb-4">
-                          <a href="#home" className="hover:underline">Privacy Policy</a>
+                          <a data-modal-target="default-modal" data-modal-toggle="default-modal" href="#contact" className="hover:underline">Donate</a>
+
+                          
                       </li>
                       <li>
-                          <a href="#home" className="hover:underline">Terms &amp; Conditions</a>
+                          <a href="mailto:africantransformationnetwork1@gmail.com" className="hover:underline">Reach Out</a>
                       </li>
                   </ul>
               </div>
@@ -55,7 +58,7 @@ const Footer = () => {
       <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm text-[#d97f38] sm:text-center dark:text-[#d97f38]">© 2023 <a href="https://flowbite.com/" className="hover:underline">ATN</a>. All Rights Reserved.
           </span>
-          <div className="flex mt-4 sm:justify-center sm:mt-0">
+          {/* <div className="flex mt-4 sm:justify-center sm:mt-0">
               <a href="#home" className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                   <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
                         <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd"/>
@@ -86,7 +89,7 @@ const Footer = () => {
                 </svg>
                   <span className="sr-only">Dribbble account</span>
               </a>
-          </div>
+          </div> */}
       </div>
     </div>
 </footer>

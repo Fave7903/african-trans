@@ -5,10 +5,18 @@ const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
   // const [isSticky, setIsSticky] = useState(false);
 
+  const combination = () => {
+    toggleAccordion();
+    scrollUp();
+  }
 
   const toggleAccordion = () => {
     setIsOpen(!isOpen);
   };
+
+  const scrollUp = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
   // useEffect(() => {
   //   const handleScroll = () => {
@@ -35,16 +43,21 @@ const Nav = () => {
             <a href="#hero" className="text-[#d97f38] rounded hover:bg-[#3c1f1b] hover:text-[#d97f38] dark:text-[#d97f38] dark:hover:bg-[#3c1f1b] dark:hover:text-[#d97f38] dark:border-gray-700 py-2 px-4 md:py-0 md:px-0 md:hover:bg-transparent">Home</a>
             <a href="#about" className="text-[#d97f38] rounded hover:bg-[#3c1f1b] hover:text-[#d97f38] dark:text-[#d97f38] dark:hover:bg-[#3c1f1b] dark:hover:text-[#d97f38] dark:border-gray-700 py-2 px-4 md:py-0 md:px-0 md:hover:bg-transparent">About</a>
             <a href="#events" className="text-[#d97f38] rounded hover:bg-[#3c1f1b] hover:text-[#d97f38] dark:text-[#d97f38] dark:hover:bg-[#3c1f1b] dark:hover:text-[#d97f38] dark:border-gray-700 py-2 px-4 md:py-0 md:px-0 md:hover:bg-transparent">Events</a>
-            <a href="#contact" className="text-[#d97f38] rounded hover:bg-[#3c1f1b] hover:text-[#d97f38] dark:text-[#d97f38] dark:hover:bg-[#3c1f1b] dark:hover:text-[#d97f38] dark:border-gray-700 py-2 px-4 md:py-0 md:px-0 md:hover:bg-transparent">Contact</a>
+            <a href="#contact" className="text-[#d97f38] rounded hover:bg-[#3c1f1b] hover:text-[#d97f38] dark:text-[#d97f38] dark:hover:bg-[#3c1f1b] dark:hover:text-[#d97f38] dark:border-gray-700 py-2 px-4 md:py-0 md:px-0 md:hover:bg-transparent">Support</a>
           </div>
           <div className="flex md:order-2">
-            <button type="button" className=" text-[#d97f38] font-extrabold bg-[#3c1f1b] hover:bg-[#3c1f1b] focus:ring-4 focus:outline-none focus:ring-[#3c1f1b] rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-[#3c1f1b] dark:hover:bg-[#3c1f1b] dark:focus:ring-[#3c1f1b]">Join Us</button>
+            <a 
+            type="button" 
+            href='https://docs.google.com/forms/d/e/1FAIpQLSeTBNvZ3LxcPP0jGOcm1wFp7zJWMwI13i5xGevtxGFqZbkPWg/viewform?usp=sharing' 
+            className="text-[#d97f38] font-extrabold bg-[#3c1f1b] hover:bg-[#3c1f1b] focus:ring-4 focus:outline-none focus:ring-[#3c1f1b] rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-[#3c1f1b] dark:hover:bg-[#3c1f1b] dark:focus:ring-[#3c1f1b]">
+              Join Us
+              </a>
             <button
               type="button"
               className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-100 dark:focus:ring-gray-200"
               aria-controls="navbar-sticky"
               aria-expanded="false"
-              onClick={toggleAccordion}
+              onClick={combination}
             >
               <span className="sr-only">Open main menu</span>
               <svg className="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -56,12 +69,12 @@ const Nav = () => {
       </nav>
       <div className='pt-14 mt-3'>
       {isOpen && (
-        <div className="border rounded-md overflow-hidden sm:hidden" id="navbar-sticky">
+        <div className="border rounded-md overflow-hidden sm:hidden">
           <div className="border-t">
-            <a href="#home" className="block py-2 px-4 text-[#d97f38] rounded hover:bg-[#3c1f1b]">Home</a>
-            <a href="#about" className="block py-2 px-4  text-[#d97f38] rounded hover:bg-[#3c1f1b]">About</a>
-            <a href="#events" className="block py-2 px-4  text-[#d97f38] rounded hover:bg-[#3c1f1b]">Events</a>
-            <a href="#contact" className="block py-2 px-4  text-[#d97f38] rounded hover:bg-[#3c1f1b]">Contact</a>
+            <a href="#home" onClick={toggleAccordion} className="block py-2 px-4 text-[#d97f38] rounded hover:bg-[#3c1f1b]">Home</a>
+            <a href="#about" onClick={toggleAccordion} className="block py-2 px-4  text-[#d97f38] rounded hover:bg-[#3c1f1b]">About</a>
+            <a href="#events" onClick={toggleAccordion} className="block py-2 px-4  text-[#d97f38] rounded hover:bg-[#3c1f1b]">Events</a>
+            <a href="#contact" onClick={toggleAccordion} className="block py-2 px-4  text-[#d97f38] rounded hover:bg-[#3c1f1b]">Support</a>
           </div>
         </div>
       )}

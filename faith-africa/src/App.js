@@ -1,10 +1,10 @@
 import './App.css';
 // import { TypeAnimation } from 'react-type-animation';
-// import Nav from './components/Nav';
-// import About from './components/About';
-// import Contact from './components/Contact';
-// import Events from './components/Events';
-// import Footer from './components/Footer';
+import Nav from './components/Nav';
+import About from './components/About';
+import Contact from './components/Contact';
+import Events from './components/Events';
+import Footer from './components/Footer';
 import Hero from './components/Hero';
 
 
@@ -14,15 +14,15 @@ function App() {
     <div>
     <div className="App font-ubuntu text-center font-bold">
 
-    {/* <Nav /> */}
+    <Nav />
 
     <div id='hero'>
-      <section class="py-7">
+      <section class="py-3">
           <Hero />
       </section>
     </div>
 
-    {/* <div id='about' className='py-7 '>
+    <div id='about' className='py-7'>
       <About />
     </div>
 
@@ -35,7 +35,7 @@ function App() {
     </div>
 
     <Footer />
-     */}
+    
     </div>
     </div>
   );
