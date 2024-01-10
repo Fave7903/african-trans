@@ -1,6 +1,12 @@
 import React from 'react'
+// import { initFlowbite } from 'flowbite'
 
 const Contact = () => {
+
+    // useEffect(() => {
+    //     initFlowbite();
+    //   }, []);
+
   return (
     <div>
 
