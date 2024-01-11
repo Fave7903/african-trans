@@ -21,7 +21,7 @@ const Contact = () => {
 <button onClick={openModal} className="w-full md:w-5/6 lg:w-2/3 xl:w-1/2 bg-[#3c1f1b] text-[#d97f38] font-bold py-3 px-6 rounded-lg shadow-lg">
   Click Here
 </button>
-<div>
+<div >
       <Modal isOpen={isModalOpen} onClose={closeModal}>
                 <h3 className="text-xl font-semibold text-gray-900">
                     You can donate to this Account
