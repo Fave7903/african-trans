@@ -1,8 +1,20 @@
-import React from 'react'
+import React, {useState} from 'react'
 import atn_logo from "../assets/ATN_logo.jpeg";
+import Modal from './Modal';
+
 
 
 const Footer = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div>
         
@@ -34,8 +46,11 @@ const Footer = () => {
                       <li className="mb-4">
                           <a href="https://www.linkedin.com/company/african-transformation-network" className="hover:underline ">LinkedIn</a>
                       </li>
-                      <li>
+                      <li className='mb-4'>
                           <a href="mailto:africantransformationnetwork1@gmail.com" className="hover:underline">Email</a>
+                      </li>
+                      <li>
+                          <a href="https://youtube.com/@AfricanTransformationNetwork?si=jvB1bvpI5brjY2rr" className="hover:underline">YouTube</a>
                       </li>
                   </ul>
               </div>
@@ -43,8 +58,35 @@ const Footer = () => {
                   <h2 className="mb-6 text-sm font-semibold text-[#d97f38] uppercase dark:text-[#d97f38]">Support us</h2>
                   <ul className="text-gray-500 dark:text-gray-400 font-medium">
                       <li className="mb-4">
-                          <a data-modal-target="default-modal" data-modal-toggle="default-modal" href="#contact" className="hover:underline">Donate</a>
+                          <a onClick={openModal} href="#contact" className="hover:underline">Donate</a>
+                          <div>
+      <Modal isOpen={isModalOpen} onClose={closeModal}>
+                <h3 className="text-xl font-semibold text-gray-900">
+                    You can donate to this Account
+                </h3>
+                
 
+          
+            <div className="p-4 md:p-5 space-y-4">
+                <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                6453642874<br />
+African Transformation Network owned by FAITH SOLOMON<br />
+Moniepoint MFB
+                </p>
+                <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                OR
+                </p><br />
+                <a href="https://selar.co/showlove/african-transformation-network" className='mt-5 w-full md:w-5/6 lg:w-2/3 xl:w-1/2 bg-[#3c1f1b] text-[#d97f38] font-bold py-3 px-6 rounded-lg shadow-lg'>Support us on Selar</a>
+                <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                Be a part of our journey to uplift Africa. Your financial support and time investment can shape a better tomorrow for our communities. With your contributions, we're nurturing innovation, driving sustainable development, and fostering growth across our diverse landscapes
+                </p>
+            </div>
+           
+            
+       
+        
+      </Modal>
+    </div>
                           
                       </li>
                       <li>

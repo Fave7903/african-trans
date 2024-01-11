@@ -1,17 +1,57 @@
-import React from 'react'
-// import { initFlowbite } from 'flowbite'
+import React, {useState} from 'react'
+import Modal from './Modal';
 
 const Contact = () => {
 
-    // useEffect(() => {
-    //     initFlowbite();
-    //   }, []);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <div>
 
 <h1 className='text-3xl font-semibold py-12 text-[#d97f38]'>Want to support this vision?</h1>
-  <button data-modal-target="default-modal" data-modal-toggle="default-modal" className="w-full md:w-5/6 lg:w-2/3 xl:w-1/2 bg-[#3c1f1b] text-[#d97f38] font-bold py-3 px-6 rounded-lg shadow-lg">
+
+<button onClick={openModal} className="w-full md:w-5/6 lg:w-2/3 xl:w-1/2 bg-[#3c1f1b] text-[#d97f38] font-bold py-3 px-6 rounded-lg shadow-lg">
+  Click Here
+</button>
+<div>
+      <Modal isOpen={isModalOpen} onClose={closeModal}>
+                <h3 className="text-xl font-semibold text-gray-900">
+                    You can donate to this Account
+                </h3>
+                
+
+          
+            <div className="p-4 md:p-5 space-y-4">
+                <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                6453642874<br />
+African Transformation Network owned by FAITH SOLOMON<br />
+Moniepoint MFB
+                </p>
+                <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                OR
+                </p><br />
+                <a href="https://selar.co/showlove/african-transformation-network" className='mt-5 w-full md:w-5/6 lg:w-2/3 xl:w-1/2 bg-[#3c1f1b] text-[#d97f38] font-bold py-3 px-6 rounded-lg shadow-lg'>Support us on Selar</a>
+                <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                Be a part of our journey to uplift Africa. Your financial support and time investment can shape a better tomorrow for our communities. With your contributions, we're nurturing innovation, driving sustainable development, and fostering growth across our diverse landscapes
+                </p>
+            </div>
+           
+            
+       
+        
+      </Modal>
+    </div>
+
+
+  {/* <button data-modal-target="default-modal" data-modal-toggle="default-modal" className="w-full md:w-5/6 lg:w-2/3 xl:w-1/2 bg-[#3c1f1b] text-[#d97f38] font-bold py-3 px-6 rounded-lg shadow-lg">
   Click Here
 </button>
 
@@ -52,7 +92,7 @@ Moniepoint MFB
             
         </div>
     </div>
-</div>
+</div> */}
 
 
 

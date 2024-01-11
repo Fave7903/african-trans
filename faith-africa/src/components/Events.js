@@ -10,13 +10,27 @@ import passion from "../assets/events/passion8.jpeg"
 import community from "../assets/events/community9.jpeg"
 import growNew1 from "../assets/events/grow_new1.jpeg"
 import growNew2 from "../assets/events/grow_new2.jpeg"
+import "../App.css"
+
+import HorizontalScroll from './HorizontalScroll';
 
 const Events = () => {
+    const images = [
+        growfirst,
+        gender,
+        relevance,
+        stand,
+        path,
+        better,
+        tech,
+        passion,
+        community
+      ];
   return (
     <div className='bg-[#3c1f1b]'>
         <h1 className='text-4xl font-semibold py-12 text-[#d97f38]'>Past Events</h1>
 
-    <div className='xl:px-14 xl:mx-14 lg:w-2/3 xl:w-2/3 md:w-2/3  lg:px-14 lg:mx-14 md:px-7 md:mx-7 sm:mb-5'>
+    {/* <div className='xl:px-14 xl:mx-14 lg:w-2/3 xl:w-2/3 md:w-2/3  lg:px-14 lg:mx-14 md:px-7 md:mx-7 sm:mb-5'>
 
 
         
@@ -95,7 +109,14 @@ const Events = () => {
 </div>
 
 
-</div>
+</div> */}
+
+<div>
+      <HorizontalScroll images={images} />
+    </div>
+
+
+
 
 <div>
 <h1 className='text-4xl font-semibold py-12 text-[#d97f38]'>Currently Running</h1>
