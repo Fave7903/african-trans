@@ -11,7 +11,7 @@ const Modal = ({ isOpen, onClose, children }) => {
               <div className="flex justify-end">
                 <button
                   onClick={onClose}
-                  className="text-gray-600 hover:text-gray-800 focus:outline-none mt-10"
+                  className="text-gray-600 hover:text-gray-800 focus:outline-none mt-14"
                 >
                   <svg
                     className="h-6 w-6"

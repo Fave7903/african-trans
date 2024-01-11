@@ -59,7 +59,7 @@ const Footer = () => {
                   <ul className="text-gray-500 dark:text-gray-400 font-medium">
                       <li className="mb-4">
                           <a onClick={openModal} href="#contact" className="hover:underline">Donate</a>
-                          <div>
+                          <div className='font-semibold'>
       <Modal isOpen={isModalOpen} onClose={closeModal}>
                 <h3 className="text-xl font-semibold text-gray-900">
                     You can donate to this Account
