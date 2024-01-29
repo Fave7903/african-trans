@@ -16,7 +16,7 @@ const Contact = () => {
   return (
     <div>
 
-<h1 className='text-3xl font-semibold py-12 text-[#d97f38]'>Want to support this vision?</h1>
+<h1 className='text-3xl font-semibold py-12 text-[#d97f38]'>Want to support and partner with this vision?</h1>
 
 <button onClick={openModal} className="w-full md:w-5/6 lg:w-2/3 xl:w-1/2 bg-[#3c1f1b] text-[#d97f38] font-bold py-3 px-6 rounded-lg shadow-lg">
   Click Here

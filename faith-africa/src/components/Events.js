@@ -119,7 +119,7 @@ const Events = () => {
 
 
 <div>
-<h1 className='text-4xl font-semibold py-12 text-[#d97f38]'>Currently Running</h1>
+<h1 className='text-4xl font-semibold py-12 text-[#d97f38]'>Recent Events</h1>
 
 <div className='xl:grid grid-cols-2 lg:grid grid-cols-2 md:grid grid-cols-2 p-4'>
     <img src={growNew1} alt="" className='px-10' />
