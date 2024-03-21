@@ -10,6 +10,8 @@ import passion from "../assets/events/passion8.jpeg"
 import community from "../assets/events/community9.jpeg"
 import growNew1 from "../assets/events/grow_new1.jpeg"
 import growNew2 from "../assets/events/grow_new2.jpeg"
+import trans_lead from "../assets/events/Trans_leadership.jpg"
+import cv_build from "../assets/events/cv_building.jpg"
 import "../App.css"
 
 import HorizontalScroll from './HorizontalScroll';
@@ -24,7 +26,10 @@ const Events = () => {
         better,
         tech,
         passion,
-        community
+        community,
+        growNew1,
+        growNew2,
+        cv_build
       ];
   return (
     <div className='bg-[#3c1f1b]'>
@@ -118,16 +123,18 @@ const Events = () => {
 
 
 
-<div>
-<h1 className='text-4xl font-semibold py-12 text-[#d97f38]'>Recent Events</h1>
+    <div>
+  <h1 className='text-4xl font-semibold py-12 text-[#d97f38]'>Currently Running</h1>
 
-<div className='xl:grid grid-cols-2 lg:grid grid-cols-2 md:grid grid-cols-2 p-4'>
-    <img src={growNew1} alt="" className='px-10' />
-    <img src={growNew2} alt="" className='px-10'/>
+  <div className='flex justify-center'>
+    <img 
+      src={trans_lead} 
+      alt="" 
+      className='lg:w-1/2 md:w-1/2 sm:w-full p-4' 
+    />
+  </div>
+</div>
 
-</div>
-    
-</div>
 
 
 
