@@ -12,6 +12,7 @@ import growNew1 from "../assets/events/grow_new1.jpeg"
 import growNew2 from "../assets/events/grow_new2.jpeg"
 import trans_lead from "../assets/events/Trans_leadership.jpg"
 import cv_build from "../assets/events/cv_building.jpg"
+import mental_health from "../assets/events/mental_health.jpg"
 import "../App.css"
 
 import HorizontalScroll from './HorizontalScroll';
@@ -29,7 +30,8 @@ const Events = () => {
         community,
         growNew1,
         growNew2,
-        cv_build
+        cv_build,
+        trans_lead
       ];
   return (
     <div className='bg-[#3c1f1b]'>
@@ -128,8 +130,8 @@ const Events = () => {
 
   <div className='flex justify-center'>
     <img 
-      src={trans_lead} 
-      alt="" 
+      src={mental_health} 
+      alt="Currently running ATN event - Mental Health" 
       className='lg:w-1/2 md:w-1/2 sm:w-full p-4' 
     />
   </div>
