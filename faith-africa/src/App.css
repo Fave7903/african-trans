@@ -3,3 +3,21 @@
 @tailwind utilities;
 
 *{scroll-behavior: smooth;}
+
+/* Example CSS if needed in App.css for further customization */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    padding: 16px;
+  }
+  
+  img {
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  img:hover {
+    transform: scale(1.05);
+  }
+  

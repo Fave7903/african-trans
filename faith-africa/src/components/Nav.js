@@ -37,7 +37,7 @@ const Nav = () => {
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <a href="#hero" className="flex items-center">
             <img src={atn_logo} className="h-12 mr-3" alt="ATN Logo" />
-            <span className="self-center text-2xs font-semibold whitespace-nowrap">African<br />Transformation<br />Network</span>
+            <span className="self-center text-xs font-semibold whitespace-nowrap">African<br />Transformation<br />Network</span>
           </a>
           <div className="hidden md:flex md:items-center md:space-x-4">
             <a href="#hero" className="text-[#d97f38] rounded hover:bg-[#3c1f1b] hover:text-[#d97f38] dark:text-[#d97f38] dark:hover:bg-[#3c1f1b] dark:hover:text-[#d97f38] dark:border-gray-700 py-2 px-4 md:py-0 md:px-0 md:hover:bg-transparent">Home</a>

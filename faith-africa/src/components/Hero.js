@@ -47,9 +47,9 @@ const Hero = () => {
                   Join Our Community Today
                 </a>
                 <div className='grid grid-cols-3 gap-4 mt-14'>
-            <p className='text-lg'><CountUp start={0} end={5} duration={7} /><br /> Countries</p>
-            <p className='text-lg'><CountUp start={0} end={10} duration={7} /><br /> Events Held</p>
-            <p className='text-lg'><CountUp start={0} end={100} duration={7} />+<br />People Impacted</p>
+            <p className='text-lg'><CountUp start={0} end={6} duration={7} /><br /> Countries</p>
+            <p className='text-lg'><CountUp start={0} end={20} duration={7} /><br /> Events Held</p>
+            <p className='text-lg'><CountUp start={0} end={200} duration={7} />+<br />People Impacted</p>
                 </div>
               </div>
             </div>

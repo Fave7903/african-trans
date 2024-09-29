@@ -4,7 +4,7 @@ import "aos/dist/aos.css"
 import buildAfrica from "../assets/build_africa.jpg"
 import capacity from "../assets/capacity.jpg"
 import leadership from "../assets/leadership.jpg"
-import excos from "../assets/atn_excos.jpg"
+import excos from "../assets/atn_excos_updated.jpg"
 
 
 const About = () => {
