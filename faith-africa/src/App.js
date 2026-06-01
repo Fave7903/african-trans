@@ -8,7 +8,7 @@ import Hero from './components/Hero';
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#050816] text-slate-100">
+    <div className="min-h-screen bg-[#050816] text-slate-100 overflow-x-hidden">
       <Nav />
       <main className="pt-20 md:pt-24">
         <section id="hero" className="pb-16">
