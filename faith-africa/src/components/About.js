@@ -1,97 +1,97 @@
-import React, { useEffect } from 'react'
-import Aos from "aos"
-import "aos/dist/aos.css"
-import buildAfrica from "../assets/build_africa.jpg"
-import capacity from "../assets/capacity.jpg"
-import leadership from "../assets/leadership.jpg"
-import excos from "../assets/atn_excos_updated.jpg"
-
+import React, { useEffect } from 'react';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+import buildAfrica from '../assets/build_africa.jpg';
+import capacity from '../assets/capacity.jpg';
+import leadership from '../assets/leadership.jpg';
+import excos from '../assets/atn_excos_updated.jpg';
 
 const About = () => {
   useEffect(() => {
-    Aos.init({ duration: 2000});
+    Aos.init({ duration: 1400, once: true });
   }, []);
+
   return (
-    <div class="flex justify-center overflow-hidden">
+    <section className="mx-auto max-w-7xl px-6 text-slate-100">
+      <div className="rounded-[2.5rem] border border-white/10 bg-slate-950/80 p-8 shadow-2xl shadow-black/40">
+        <div data-aos="fade-up" className="space-y-6">
+          <div>
+            <p className="inline-flex rounded-full border border-[#d97f38]/30 bg-[#d97f38]/10 px-4 py-2 text-xs uppercase tracking-[0.3em] text-[#d97f38]">
+              Mission & Vision
+            </p>
+            <h2 className="mt-6 text-4xl font-semibold tracking-tight text-white">Our mission is to equip African youth with clarity, confidence, and systems for long-term impact.</h2>
+            <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-300">
+              African Transformation Network brings thought leadership, mentorship, and transformative programming together so every participant can turn ambition into measurable change.
+            </p>
+          </div>
 
-    
-    <div className='xl:w-2/3 lg:w-2/3 md:w-2/3 w-full'>
-      <div data-aos="fade-right">
-        <h1 className='text-5xl font-semibold py-12 text-[#d97f38]'>Our Mission</h1>
+          <div className="grid gap-6 lg:grid-cols-2">
+            <div className="rounded-3xl border border-white/10 bg-[#07111f]/80 p-6">
+              <h3 className="text-xl font-semibold text-white">Organizing programs that propel growth</h3>
+              <p className="mt-4 text-slate-300 leading-7">
+                We deliver immersive webinars, mentorship cohorts, masterclasses, and conferences designed to strengthen skills, broaden mindsets, and accelerate career trajectories.
+              </p>
+            </div>
+            <div className="rounded-3xl border border-white/10 bg-[#07111f]/80 p-6">
+              <h3 className="text-xl font-semibold text-white">Creating compelling content for change</h3>
+              <p className="mt-4 text-slate-300 leading-7">
+                From video series to hands-on trainings, we curate resources that help young Africans navigate modern careers while sustaining community-centered development.
+              </p>
+            </div>
+          </div>
+
+          <div className="rounded-3xl border border-[#d97f38]/10 bg-[#03101e]/80 p-6">
+            <h3 className="text-2xl font-semibold text-[#d97f38]">Join us in redefining possibilities</h3>
+            <p className="mt-4 text-slate-300 leading-7">
+              We are building a generation that leads with intentionality, innovation, and a shared commitment to Africa’s future.
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-16 grid gap-10 lg:grid-cols-2">
+          <div data-aos="fade-right" className="space-y-6 rounded-[2rem] border border-white/10 bg-[#041020]/80 p-6 shadow-xl shadow-black/20">
+            <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10">
+              <img src={buildAfrica} alt="Building Africa Together" className="h-72 w-full object-cover" />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 to-transparent p-6">
+                <p className="text-2xl font-semibold text-white">Building Africa Together</p>
+              </div>
+            </div>
+            <p className="text-slate-300 leading-7">
+              Our vision is to motivate and guide young Africans toward self-development and mental transformation, creating the foundation for sustainable personal and communal progress.
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            <div data-aos="fade-left" className="rounded-[1.75rem] border border-white/10 bg-[#041020]/80 overflow-hidden">
+              <img src={capacity} alt="Capacity building" className="h-72 w-full object-cover" />
+              <div className="p-6">
+                <p className="text-2xl font-semibold text-white">Capacity Building</p>
+                <p className="mt-4 text-slate-300 leading-7">
+                  We equip young leaders with the skills, networks, and confidence to shape outcomes in careers, organizations, and governments.
+                </p>
+              </div>
+            </div>
+            <div data-aos="fade-left" className="rounded-[1.75rem] border border-white/10 bg-[#041020]/80 overflow-hidden">
+              <img src={leadership} alt="Leadership" className="h-72 w-full object-cover" />
+              <div className="p-6">
+                <p className="text-2xl font-semibold text-white">Empowering leaders across every sphere</p>
+                <p className="mt-4 text-slate-300 leading-7">
+                  We nurture emerging leaders to become catalysts for progress in Africa’s most dynamic communities.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div data-aos="fade-up" className="mt-16 rounded-[2rem] border border-white/10 bg-[#03101e]/80 p-6 text-slate-300">
+          <h3 className="text-3xl font-semibold text-white">The Executive Board</h3>
+          <div className="mt-8 overflow-hidden rounded-[1.75rem] border border-white/10">
+            <img src={excos} alt="Executive board" className="w-full object-cover" />
+          </div>
+        </div>
       </div>
-        
-      <div data-aos="fade-left" className='flex justify-center'>
-        <h3 className='font-thin text-justify text-xl mx-5 my-5'>At African Transformation Network (ATN), our mission is crystal clear: to empower African youths to shape a transformative future for themselves and the world. Through innovative programs and impactful initiatives, we pave the way for young African minds to thrive and contribute meaningfully on a global scale.</h3>
-      </div>
-      <div data-aos="fade-up" className='mx-5 my-5 text-justify'>
-      <ul className='grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-10'>
-          <li><h5 className='text-lg font-semibold text-[#d97f38] mx-5 px-5'>Organizing Programs that propel growth</h5><p className='font-thin text-lg my-4'>We orchestrate an array of transformative events, from thought-provoking webinars and mentorship opportunities to immersive masterclasses and inspiring conferences. These avenues serve as dynamic platforms for learning, networking, and honing skills essential for personal and professional growth.</p></li>
-          <li><h5 className='text-lg font-semibold text-[#d97f38] mx-5 px-5'>Creating Compelling Content for Change</h5><p className='font-thin text-lg my-4'>Harnessing the power of media, we curate engaging videos, insightful books, and specialized trainings. These resources are designed to empower and equip African youths with the knowledge and tools needed to succeed in today's ever-evolving world. Some of these training opportunities are available at a nominal cost to support our initiatives.</p></li>
-        </ul>
-        <h4 className='text-lg font-semibold text-[#d97f38] mx-5 px-5'>Join Us in Redefining Possibilities</h4><p className='font-thin text-lg my-4'>Join us on this transformative journey as we nurture the potential of African youths and cultivate a generation ready to make a meaningful impact. Together, we redefine possibilities and shape a future where African talent plays a pivotal role in global transformation.</p>
-      </div>
+    </section>
+  );
+};
 
-      <div data-aos="fade-right">
-        <h1 className='text-5xl font-semibold text-[#d97f38] py-5'>Our Vision</h1>
-      </div>
-
-      <div class="flex justify-center items-center py-7">
-  <div>
-    <div className='grid lg:grid-cols-2 gap-2 md:grid-cols-2 gap-4 py-7' data-aos="fade-left">
-
-      <div className="relative mb-6 h-64 lg:rounded-lg xl:rounded-lg md:rounded-lg overflow-hidden">
-      
-        <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
-        <img className="object-cover w-full h-full absolute inset-0 z-0" src={buildAfrica} alt="Background" />
-        
-        <p className="text-white text-2xl font-bold p-4 top-20 z-20 relative">Building Africa Together</p>
-      </div>
-      <div>
-        <p className='text-[#d97f38] text-lg mx-2'>Our vision is to motivate and guide young Africans towards self-development and profound mental transformation, instilling a mindset conducive to personal and communal advancement</p>
-      </div>
-    </div>
-
-    <div className='grid lg:grid-cols-2 gap-2 md:grid-cols-2 gap-4 py-7' data-aos="fade-right">
-
-    <p className='text-[#d97f38] text-lg mx-2'> ATN envisions empowering young Africans by nurturing their innate talents and abilities, fostering their growth as catalysts for African development</p>
-
-      <div className="relative mb-6 h-64 lg:rounded-lg xl:rounded-lg md:rounded-lg overflow-hidden">
-      
-        <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
-        <img className="object-cover w-full h-full absolute inset-0 z-0" src={capacity} alt="Background" />
-        
-        <p className="text-white text-2xl font-bold p-4 top-20 z-20 relative">Capacity Building</p>
-      </div>
-      
-    </div>
-
-    <div className='grid lg:grid-cols-2 gap-2 md:grid-cols-2 gap-4 py-7' data-aos="fade-up">
-
-      <div className="relative mb-6 h-64 lg:rounded-lg xl:rounded-lg md:rounded-lg overflow-hidden">
-      
-        <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
-        <img className="object-cover w-full h-full absolute inset-0 z-0" src={leadership} alt="Background" />
-        
-        <p className="text-white text-2xl font-bold p-4 top-20 z-20 relative">Empowering Leaders Across Every Sphere of Influence</p>
-      </div>
-      <div>
-        <p className='text-[#d97f38] text-lg mx-2'>We aim to equip men and women as future leaders capable of steering progress in diverse arenas, including careers, organizations, and governments across Africa's dynamic landscape</p>
-      </div>
-    </div> 
-    
-  </div>
-</div>
-    <div>
-    <div data-aos="fade-right">
-        <h1 className='text-3xl font-semibold py-12 text-[#d97f38]'>The Executive Board</h1>
-        <img src={excos} alt='Executive board' />
-      </div>
-    </div>
-
-        
-    </div>
-    </div>
-  )
-}
-
-export default About
+export default About;

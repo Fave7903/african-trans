@@ -191,62 +191,86 @@ import gambling from "../assets/events/gambling.jpg";
 import empower from "../assets/events/empower.jpg";
 import sdg from "../assets/events/sdg.jpg";
 import rlmath from "../assets/events/rlmath.jpg";
-import "../App.css";
 
 const Events = () => {
-  const images = [
-    growfirst,
-    gender,
-    relevance,
-    stand,
-    path,
-    better,
-    tech,
-    passion,
-    community,
-    growNew1,
-    growNew2,
-    cv_build,
-    trans_lead,
-    mental_health,
-    digital_transform,
-    social_network,
-    gambling,
-    empower,
-    sdg,
-    rlmath
+  const eventCards = [
+    { src: growfirst, title: 'Growth Lab' },
+    { src: gender, title: 'Gender Justice' },
+    { src: relevance, title: 'Relevance Summit' },
+    { src: stand, title: 'Stand Together' },
+    { src: path, title: 'Pathfinder Forum' },
+    { src: better, title: 'Better Futures' },
+    { src: tech, title: 'Digital Access' },
+    { src: passion, title: 'Passion X' },
+    { src: community, title: 'Community Circle' },
+    { src: growNew1, title: 'New Growth Series' },
+    { src: growNew2, title: 'Emerging Leaders' },
+    { src: cv_build, title: 'Career Boost' },
+    { src: trans_lead, title: 'Leadership Track' },
+    { src: mental_health, title: 'Mind Wellness' },
+    { src: digital_transform, title: 'Digital Transformation' },
+    { src: social_network, title: 'Network Lab' },
+    { src: gambling, title: 'Choices & Risks' },
+    { src: empower, title: 'Empowerment Circle' },
+    { src: sdg, title: 'SDG Forum' },
+    { src: rlmath, title: 'Creative Learning' }
   ];
 
   return (
-    <div className='bg-[#3c1f1b]'>
-      <h1 className='text-4xl font-semibold py-12 text-[#d97f38]'>Past Events</h1>
+    <section className="mx-auto max-w-7xl px-6">
+      <div className="mb-8 text-center">
+        <span className="inline-flex rounded-full border border-[#d97f38]/30 px-3 py-1 text-sm uppercase tracking-[0.3em] text-[#d97f38]">
+          Past Showcase
+        </span>
+        <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white">
+          Events that shaped our movement
+        </h2>
+        <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-slate-300">
+          Our program archive reflects intentional learning, leadership, and community-building across Africa.
+        </p>
+      </div>
 
-      {/* Grid of images */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
-        {images.map((image, index) => (
-          <div key={index} className="relative group">
-            <img
-              src={image}
-              alt={`Event ${index + 1}`}
-              className="w-full h-full object-cover rounded-lg transition-transform duration-300 ease-in-out transform group-hover:scale-105"
-            />
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {eventCards.map((event, index) => (
+          <div
+            key={index}
+            className="group overflow-hidden rounded-3xl border border-white/10 bg-slate-950/80 shadow-[0_45px_120px_-45px_rgba(0,0,0,0.8)] transition duration-300 hover:-translate-y-1 hover:border-[#d97f38]/40"
+          >
+            <div className="relative overflow-hidden">
+              <img
+                src={event.src}
+                alt={event.title}
+                className="h-72 w-full object-cover transition duration-500 ease-out group-hover:scale-105"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 to-transparent px-4 py-4">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#d97f38]/90">
+                  Event Highlight
+                </p>
+                <p className="mt-2 text-lg font-semibold text-white">{event.title}</p>
+              </div>
+            </div>
           </div>
         ))}
       </div>
 
-      <div>
-        <h1 className='text-4xl font-semibold py-12 text-[#d97f38]'>Currently Running</h1>
-        <div className='flex justify-center'>
-          {/* Uncomment and use the currently running event image */}
-          {/* <img 
-            src={mental_health} 
-            alt="Currently running event - Mental Health" 
-            className='lg:w-1/2 md:w-1/2 sm:w-full p-4' 
-          /> */}
-          <h3 className='text-2xl font-semibold text-[#d97f38] py-4'>None</h3>
+      <div className="mt-14 rounded-3xl border border-white/10 bg-slate-950/80 p-8 shadow-xl shadow-slate-950/60">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <p className="text-sm uppercase tracking-[0.35em] text-[#d97f38]">Currently running</p>
+            <h3 className="mt-3 text-3xl font-semibold text-white">No live community events right now</h3>
+            <p className="mt-4 max-w-2xl text-slate-300">
+              We are building toward the next immersive cohort. Join our community to receive first access to new programs, learning labs, and mentorship experiences.
+            </p>
+          </div>
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSeTBNvZ3LxcPP0jGOcm1wFp7zJWMwI13i5xGevtxGFqZbkPWg/viewform?usp=sharing"
+            className="inline-flex items-center justify-center rounded-full bg-[#d97f38] px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-[#be8d3f]"
+          >
+            Join the waiting list
+          </a>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

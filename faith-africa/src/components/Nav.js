@@ -3,83 +3,66 @@ import atn_logo from "../assets/ATN_logo.jpeg";
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
-  // const [isSticky, setIsSticky] = useState(false);
-
-  const combination = () => {
-    toggleAccordion();
-    scrollUp();
-  }
 
   const toggleAccordion = () => {
     setIsOpen(!isOpen);
   };
 
-  const scrollUp = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const offset = window.scrollY;
-  //     setIsSticky(offset > 0);
-  //   };
-
-  //   window.addEventListener('scroll', handleScroll);
-
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll);
-  //   };
-  // }, []);
-
   return (
-    <div>
-      <nav className="bg-white dark:bg-white fixed w-full z-50 top-0 left-0 border-b border-gray-300 dark:border-gray-300">
-        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          <a href="#hero" className="flex items-center">
-            <img src={atn_logo} className="h-12 mr-3" alt="ATN Logo" />
-            <span className="self-center text-xs font-semibold whitespace-nowrap">African<br />Transformation<br />Network</span>
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#050816]/90 backdrop-blur-xl">
+      <nav className="mx-auto flex max-w-7xl flex-wrap items-center justify-between px-6 py-4 text-sm text-slate-100">
+        <a href="#hero" className="flex items-center gap-3">
+          <img src={atn_logo} className="h-12 w-12 rounded-full object-cover border border-white/10" alt="ATN Logo" />
+          <div>
+            <p className="font-semibold uppercase tracking-[0.3em] text-[#d97f38]">ATN</p>
+            <p className="text-xs text-slate-400">African Transformation Network</p>
+          </div>
+        </a>
+
+        <div className="hidden items-center gap-8 md:flex">
+          <a href="#hero" className="transition hover:text-[#d97f38]">Home</a>
+          <a href="#about" className="transition hover:text-[#d97f38]">About</a>
+          <a href="#events" className="transition hover:text-[#d97f38]">Events</a>
+          <a href="#contact" className="transition hover:text-[#d97f38]">Support</a>
+        </div>
+
+        <div className="flex items-center gap-3">
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSeTBNvZ3LxcPP0jGOcm1wFp7zJWMwI13i5xGevtxGFqZbkPWg/viewform?usp=sharing"
+            className="rounded-full bg-[#d97f38] px-5 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-slate-950 transition hover:bg-[#be8d3f]"
+          >
+            Join Us
           </a>
-          <div className="hidden md:flex md:items-center md:space-x-4">
-            <a href="#hero" className="text-[#d97f38] rounded hover:bg-[#3c1f1b] hover:text-[#d97f38] dark:text-[#d97f38] dark:hover:bg-[#3c1f1b] dark:hover:text-[#d97f38] dark:border-gray-700 py-2 px-4 md:py-0 md:px-0 md:hover:bg-transparent">Home</a>
-            <a href="#about" className="text-[#d97f38] rounded hover:bg-[#3c1f1b] hover:text-[#d97f38] dark:text-[#d97f38] dark:hover:bg-[#3c1f1b] dark:hover:text-[#d97f38] dark:border-gray-700 py-2 px-4 md:py-0 md:px-0 md:hover:bg-transparent">About</a>
-            <a href="#events" className="text-[#d97f38] rounded hover:bg-[#3c1f1b] hover:text-[#d97f38] dark:text-[#d97f38] dark:hover:bg-[#3c1f1b] dark:hover:text-[#d97f38] dark:border-gray-700 py-2 px-4 md:py-0 md:px-0 md:hover:bg-transparent">Events</a>
-            <a href="#contact" className="text-[#d97f38] rounded hover:bg-[#3c1f1b] hover:text-[#d97f38] dark:text-[#d97f38] dark:hover:bg-[#3c1f1b] dark:hover:text-[#d97f38] dark:border-gray-700 py-2 px-4 md:py-0 md:px-0 md:hover:bg-transparent">Support</a>
-          </div>
-          <div className="flex md:order-2">
-            <a 
-            type="button" 
-            href='https://docs.google.com/forms/d/e/1FAIpQLSeTBNvZ3LxcPP0jGOcm1wFp7zJWMwI13i5xGevtxGFqZbkPWg/viewform?usp=sharing' 
-            className="text-[#d97f38] font-extrabold bg-[#3c1f1b] hover:bg-[#3c1f1b] focus:ring-4 focus:outline-none focus:ring-[#3c1f1b] rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-[#3c1f1b] dark:hover:bg-[#3c1f1b] dark:focus:ring-[#3c1f1b]">
-              Join Us
-              </a>
-            <button
-              type="button"
-              className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-100 dark:focus:ring-gray-200"
-              aria-controls="navbar-sticky"
-              aria-expanded="false"
-              onClick={combination}
-            >
-              <span className="sr-only">Open main menu</span>
-              <svg className="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path>
-              </svg>
-            </button>
-          </div>
+          <button
+            type="button"
+            className="inline-flex items-center justify-center rounded-full border border-white/10 p-2 text-slate-200 transition hover:bg-white/5 md:hidden"
+            onClick={toggleAccordion}
+            aria-label="Open navigation"
+          >
+            <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M3 6h14M3 10h14M3 14h14" />
+            </svg>
+          </button>
         </div>
       </nav>
-      <div className='pt-14 mt-3'>
+
       {isOpen && (
-        <div className="border rounded-md overflow-hidden sm:hidden">
-          <div className="border-t">
-            <a href="#home" onClick={toggleAccordion} className="block py-2 px-4 text-[#d97f38] rounded hover:bg-[#3c1f1b]">Home</a>
-            <a href="#about" onClick={toggleAccordion} className="block py-2 px-4  text-[#d97f38] rounded hover:bg-[#3c1f1b]">About</a>
-            <a href="#events" onClick={toggleAccordion} className="block py-2 px-4  text-[#d97f38] rounded hover:bg-[#3c1f1b]">Events</a>
-            <a href="#contact" onClick={toggleAccordion} className="block py-2 px-4  text-[#d97f38] rounded hover:bg-[#3c1f1b]">Support</a>
-          </div>
+        <div className="border-t border-white/10 bg-[#050816]/95 px-6 py-4 text-slate-100 md:hidden">
+          <a href="#hero" onClick={toggleAccordion} className="block py-3 text-lg transition hover:text-[#d97f38]">
+            Home
+          </a>
+          <a href="#about" onClick={toggleAccordion} className="block py-3 text-lg transition hover:text-[#d97f38]">
+            About
+          </a>
+          <a href="#events" onClick={toggleAccordion} className="block py-3 text-lg transition hover:text-[#d97f38]">
+            Events
+          </a>
+          <a href="#contact" onClick={toggleAccordion} className="block py-3 text-lg transition hover:text-[#d97f38]">
+            Support
+          </a>
         </div>
       )}
-      </div>
-    </div>
+    </header>
   );
 };
 

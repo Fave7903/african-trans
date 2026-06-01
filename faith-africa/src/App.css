@@ -2,22 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-*{scroll-behavior: smooth;}
+* {
+  scroll-behavior: smooth;
+}
 
-/* Example CSS if needed in App.css for further customization */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
-    padding: 16px;
-  }
-  
-  img {
-    border-radius: 8px;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  img:hover {
-    transform: scale(1.05);
-  }
-  
+body {
+  background: #050816;
+  color: #e2e8f0;
+}
+
+::selection {
+  background: rgba(217, 127, 56, 0.35);
+  color: #fff;
+}
+
+button,
+a {
+  transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+}
