@@ -1,5 +1,4 @@
 import React from 'react';
-import { TypeAnimation } from 'react-type-animation';
 import atn_hero from "../assets/atn_hero.jpg";
 import CountUp from 'react-countup';
 

@@ -10,8 +10,8 @@ function App() {
   return (
     <div className="min-h-screen bg-[#050816] text-slate-100">
       <Nav />
-      <main className="pt-24">
-        <section id="hero" className="py-16">
+      <main className="pt-20 md:pt-24">
+        <section id="hero" className="pb-16">
           <Hero />
         </section>
         <section id="about" className="py-16">

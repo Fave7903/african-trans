@@ -29,7 +29,7 @@ const Nav = () => {
         <div className="flex items-center gap-3">
           <a
             href="https://docs.google.com/forms/d/e/1FAIpQLSeTBNvZ3LxcPP0jGOcm1wFp7zJWMwI13i5xGevtxGFqZbkPWg/viewform?usp=sharing"
-            className="rounded-full bg-[#d97f38] px-5 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-slate-950 transition hover:bg-[#be8d3f]"
+            className="hidden rounded-full bg-[#d97f38] px-5 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-slate-950 transition hover:bg-[#be8d3f] md:inline-flex"
           >
             Join Us
           </a>
@@ -37,31 +37,46 @@ const Nav = () => {
             type="button"
             className="inline-flex items-center justify-center rounded-full border border-white/10 p-2 text-slate-200 transition hover:bg-white/5 md:hidden"
             onClick={toggleAccordion}
-            aria-label="Open navigation"
+            aria-expanded={isOpen}
+            aria-label={isOpen ? 'Close navigation' : 'Open navigation'}
           >
-            <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M3 6h14M3 10h14M3 14h14" />
+            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+              {isOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              )}
             </svg>
           </button>
         </div>
       </nav>
 
-      {isOpen && (
-        <div className="border-t border-white/10 bg-[#050816]/95 px-6 py-4 text-slate-100 md:hidden">
-          <a href="#hero" onClick={toggleAccordion} className="block py-3 text-lg transition hover:text-[#d97f38]">
+      <div
+        className={`md:hidden overflow-hidden border-t border-white/10 bg-[#050816]/95 transition-all duration-300 ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
+        aria-hidden={!isOpen}
+      >
+        <div className="px-6 py-4 text-slate-100">
+          <a href="#hero" onClick={toggleAccordion} className="block rounded-3xl px-4 py-3 text-lg transition hover:text-[#d97f38]">
             Home
           </a>
-          <a href="#about" onClick={toggleAccordion} className="block py-3 text-lg transition hover:text-[#d97f38]">
+          <a href="#about" onClick={toggleAccordion} className="mt-2 block rounded-3xl px-4 py-3 text-lg transition hover:text-[#d97f38]">
             About
           </a>
-          <a href="#events" onClick={toggleAccordion} className="block py-3 text-lg transition hover:text-[#d97f38]">
+          <a href="#events" onClick={toggleAccordion} className="mt-2 block rounded-3xl px-4 py-3 text-lg transition hover:text-[#d97f38]">
             Events
           </a>
-          <a href="#contact" onClick={toggleAccordion} className="block py-3 text-lg transition hover:text-[#d97f38]">
+          <a href="#contact" onClick={toggleAccordion} className="mt-2 block rounded-3xl px-4 py-3 text-lg transition hover:text-[#d97f38]">
             Support
           </a>
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSeTBNvZ3LxcPP0jGOcm1wFp7zJWMwI13i5xGevtxGFqZbkPWg/viewform?usp=sharing"
+            onClick={toggleAccordion}
+            className="mt-4 inline-flex w-full justify-center rounded-full bg-[#d97f38] px-5 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-slate-950 transition hover:bg-[#be8d3f]"
+          >
+            Join Us
+          </a>
         </div>
-      )}
+      </div>
     </header>
   );
 };

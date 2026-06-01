@@ -69,7 +69,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-14 border-t border-white/10 pt-8 text-sm text-slate-500 sm:flex sm:items-center sm:justify-between">
-          <p>© 2024 ATN. All rights reserved.</p>
+          <p>© 2026 ATN. All rights reserved.</p>
           <p className="mt-4 sm:mt-0">Designed for mission-focused growth.</p>
         </div>
       </div>
