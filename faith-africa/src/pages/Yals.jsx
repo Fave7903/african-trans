@@ -1,18 +1,20 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import PageLoader from '../components/PageLoader';
 import ImageLightbox from '../components/ImageLightbox';
 import FlyerThumbnail from '../components/FlyerThumbnail';
 import { fetchYalsSummits, isFirebaseConfigured } from '../services/firebase';
 import { formatEventDate } from '../utils/date';
 import { toEmbedStreamUrl } from '../utils/stream';
-import { getPastSummitsArchive, selectHeroSummit } from '../utils/yalsSummits';
+import { selectHeroSummit } from '../utils/yalsSummits';
+import yalsHeroImage from '../assets/_NEX9657.JPG';
 
 const Yals = () => {
   const [summits, setSummits] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [lightboxUrl, setLightboxUrl] = useState(null);
+  const [selectedSummit, setSelectedSummit] = useState(null);
 
   useEffect(() => {
     if (!isFirebaseConfigured) {
@@ -32,7 +34,7 @@ const Yals = () => {
   }, []);
 
   const hero = useMemo(() => selectHeroSummit(summits), [summits]);
-  const archive = useMemo(() => getPastSummitsArchive(summits, hero), [summits, hero]);
+  const otherSummits = useMemo(() => summits.filter((summit) => summit.id !== hero?.id), [summits, hero]);
   const embedUrl = hero?.isLive ? toEmbedStreamUrl(hero.liveStreamUrl) : null;
 
   if (loading) return <PageLoader message="Loading YALS summit…" />;
@@ -42,20 +44,36 @@ const Yals = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45 }}
-      className="mx-auto max-w-7xl px-6 py-12"
+      className="pb-12"
     >
-      <p className="text-xs uppercase tracking-[0.3em] text-brand-gold">Young African Leadership Summit</p>
-      <h1 className="mt-4 max-w-4xl text-4xl font-semibold text-white sm:text-5xl">
-        A premier hybrid summit — hosted across the continent, streamed to the world.
-      </h1>
-      <p className="mt-4 max-w-2xl text-lg text-slate-300 leading-8">
-        YALS brings emerging leaders together for in-person convening and continental livestream — governance,
-        innovation, enterprise, and servant-steward leadership.
-      </p>
-      {error && <p className="mt-6 text-sm text-slate-400">{error}</p>}
+      <section className="relative isolate flex min-h-[32rem] items-center overflow-hidden sm:min-h-[38rem]">
+        <img
+          src={yalsHeroImage}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
+        />
+        <div className="absolute inset-0 -z-10 bg-slate-950/75" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-slate-950/90 via-slate-950/60 to-slate-950/25" />
+        <div className="mx-auto w-full max-w-7xl px-6 py-20">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-gold">
+            Young African Leadership Summit
+          </p>
+          <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">
+            A premier hybrid summit — hosted across the continent, streamed to the world.
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200">
+            YALS brings emerging leaders together for in-person convening and continental livestream — governance,
+            innovation, enterprise, and servant-steward leadership.
+          </p>
+        </div>
+      </section>
 
-      {hero && (
-        <section className="mt-14 overflow-hidden rounded-[2rem] border border-brand-border bg-brand-card/60">
+      <div className="mx-auto max-w-7xl px-3 pt-12 sm:px-6">
+        {error && <p className="text-sm text-slate-400">{error}</p>}
+
+        {hero && (
+          <section className="overflow-hidden rounded-[2rem] border border-brand-border bg-brand-card/60">
           {hero.isLive && (
             <div className="border-b border-brand-gold/30 bg-brand-goldMuted px-6 py-3">
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">● Live now</p>
@@ -77,6 +95,13 @@ const Yals = () => {
                 dangerouslySetInnerHTML={{ __html: hero.description || '' }}
               />
               <div className="mt-8 flex flex-wrap gap-3">
+                <button
+                  type="button"
+                  onClick={() => setSelectedSummit(hero)}
+                  className="rounded-full border border-brand-gold/60 px-6 py-3 text-sm font-semibold text-brand-gold hover:bg-brand-gold/10"
+                >
+                  View event highlights
+                </button>
                 {hero.isLive && hero.liveStreamUrl && (
                   <a
                     href={hero.liveStreamUrl}
@@ -127,31 +152,117 @@ const Yals = () => {
               )}
             </div>
           )}
-        </section>
-      )}
+          </section>
+        )}
 
-      {!hero && !error && (
-        <p className="mt-12 text-center text-slate-500">No YALS summits published yet.</p>
-      )}
+        {!hero && !error && (
+          <p className="mt-12 text-center text-slate-500">No YALS summits published yet.</p>
+        )}
 
-      {archive.length > 0 && (
-        <section className="mt-20">
-          <h2 className="text-2xl font-semibold text-white">Summit archive</h2>
-          <p className="mt-2 text-slate-400">Past convenings across the continent.</p>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {archive.map((s) => (
-              <article key={s.id} className="rounded-2xl border border-brand-border bg-brand-card/50 p-4">
-                {s.flyerUrl && (
-                  <FlyerThumbnail src={s.flyerUrl} alt={s.title} onOpen={setLightboxUrl} className="mb-4" />
-                )}
-                <h3 className="font-semibold text-white">{s.title}</h3>
-                <p className="mt-1 text-sm text-brand-gold">{s.hostCountry}</p>
-                <p className="text-xs text-slate-500">{formatEventDate(s.date)}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-      )}
+        {otherSummits.length > 0 && (
+          <section className="mt-20">
+            <h2 className="text-2xl font-semibold text-white">More YALS events</h2>
+            <p className="mt-2 text-slate-400">Explore past highlights and upcoming convenings.</p>
+            <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {otherSummits.map((s) => (
+                <button
+                  type="button"
+                  key={s.id}
+                  onClick={() => setSelectedSummit(s)}
+                  className="group rounded-2xl border border-brand-border bg-brand-card/50 p-3 text-left hover:border-brand-gold/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold sm:p-4"
+                  aria-label={`View highlights for ${s.title}`}
+                >
+                  {s.flyerUrl && (
+                    <img
+                      src={s.flyerUrl}
+                      alt={`${s.title} flyer`}
+                      className="mb-4 aspect-[16/10] w-full rounded-xl object-cover transition duration-300 group-hover:brightness-110"
+                    />
+                  )}
+                  <h3 className="font-semibold text-white">{s.title}</h3>
+                  <p className="mt-1 text-sm text-brand-gold">{s.hostCountry}</p>
+                  <p className="text-xs text-slate-500">{formatEventDate(s.date)}</p>
+                  <span className="mt-2 inline-block rounded-full bg-brand-goldMuted px-3 py-1 text-xs font-medium text-brand-gold">
+                    {s.status || 'Summit'}
+                  </span>
+                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-gold">
+                    View highlights
+                    <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
+                  </span>
+                </button>
+              ))}
+            </div>
+          </section>
+        )}
+      </div>
+
+      <AnimatePresence>
+        {selectedSummit && (
+          <motion.div
+            className="fixed inset-0 z-[90] flex items-center justify-center overflow-y-auto p-4 sm:p-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="summit-highlights-title"
+            onClick={() => setSelectedSummit(null)}
+          >
+            <div className="fixed inset-0 bg-black/80 backdrop-blur-sm" />
+            <motion.section
+              className="relative z-10 my-auto max-h-[90vh] w-full max-w-5xl overflow-y-auto rounded-3xl border border-brand-border bg-brand-dark p-6 shadow-2xl sm:p-8"
+              initial={{ opacity: 0, y: 16, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 12, scale: 0.98 }}
+              onClick={(event) => event.stopPropagation()}
+            >
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.25em] text-brand-gold">Event highlights</p>
+                  <h2 id="summit-highlights-title" className="mt-2 text-2xl font-semibold text-white">
+                    {selectedSummit.title}
+                  </h2>
+                  <p className="mt-1 text-sm text-slate-400">
+                    {selectedSummit.hostCountry}
+                    {selectedSummit.date ? ` · ${formatEventDate(selectedSummit.date)}` : ''}
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setSelectedSummit(null)}
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-brand-border text-slate-300 hover:bg-brand-card hover:text-white"
+                  aria-label="Close event highlights"
+                >
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              {selectedSummit.highlightImages?.length ? (
+                <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  {selectedSummit.highlightImages.map((imageUrl, index) => (
+                    <button
+                      type="button"
+                      key={`${imageUrl}-${index}`}
+                      onClick={() => setLightboxUrl(imageUrl)}
+                      className="group overflow-hidden rounded-xl border border-brand-border bg-brand-card focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold"
+                      aria-label={`View event highlight ${index + 1}`}
+                    >
+                      <img
+                        src={imageUrl}
+                        alt={`${selectedSummit.title} highlight ${index + 1}`}
+                        className="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-105"
+                      />
+                    </button>
+                  ))}
+                </div>
+              ) : (
+                <p className="mt-8 rounded-2xl border border-brand-border bg-brand-card/60 p-6 text-center text-slate-300">
+                  Event highlight photos have not been added yet.
+                </p>
+              )}
+            </motion.section>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <ImageLightbox isOpen={Boolean(lightboxUrl)} imageUrl={lightboxUrl} onClose={() => setLightboxUrl(null)} />
     </motion.div>

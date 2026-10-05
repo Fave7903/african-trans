@@ -10,8 +10,6 @@ import { useInView } from 'react-intersection-observer';
 
 import atn_hero from '../assets/atn_hero.jpg';
 
-import excos from '../assets/atn_excos_updated.jpg';
-
 import { fetchEvents, fetchYalsSummits, isFirebaseConfigured } from '../services/firebase';
 
 import { formatEventDate } from '../utils/date';
@@ -300,15 +298,7 @@ const Home = () => {
 
       <motion.section {...sectionMotion} className="mx-auto max-w-7xl px-6 py-16">
 
-        <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-
-          <div className="overflow-hidden rounded-[2rem] border border-brand-border">
-
-            <img src={excos} alt="ATN Executive Leadership" className="w-full object-cover" />
-
-          </div>
-
-          <div>
+        <div className="max-w-3xl">
 
             <p className="text-xs uppercase tracking-[0.3em] text-brand-gold">Executive leadership</p>
 
@@ -325,8 +315,6 @@ const Home = () => {
               Read strategic pillars & policy →
 
             </Link>
-
-          </div>
 
         </div>
 
@@ -448,5 +436,4 @@ const Home = () => {
 
 
 export default Home;
-
 

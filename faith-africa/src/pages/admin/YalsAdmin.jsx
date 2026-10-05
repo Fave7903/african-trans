@@ -21,6 +21,7 @@ const emptySummit = () => ({
   time: '',
   description: '',
   flyerUrl: '',
+  highlightImages: [],
   registrationUrl: '',
   isLive: false,
   liveStreamUrl: '',
@@ -35,6 +36,7 @@ const YalsAdmin = () => {
   const [editingId, setEditingId] = useState(null);
   const [form, setForm] = useState(emptySummit());
   const [flyerFile, setFlyerFile] = useState(null);
+  const [highlightFiles, setHighlightFiles] = useState([]);
   const [saving, setSaving] = useState(false);
 
   const load = useCallback(async () => {
@@ -56,6 +58,7 @@ const YalsAdmin = () => {
     setEditingId(null);
     setForm(emptySummit());
     setFlyerFile(null);
+    setHighlightFiles([]);
     setModalOpen(true);
   };
 
@@ -69,6 +72,7 @@ const YalsAdmin = () => {
       time: s.time || '',
       description: s.description || '',
       flyerUrl: s.flyerUrl || '',
+      highlightImages: Array.isArray(s.highlightImages) ? s.highlightImages : [],
       registrationUrl: s.registrationUrl || '',
       isLive: Boolean(s.isLive),
       liveStreamUrl: s.liveStreamUrl || '',
@@ -76,6 +80,7 @@ const YalsAdmin = () => {
       status: s.status === 'Past' || s.status === 'past' ? 'Past' : 'Upcoming',
     });
     setFlyerFile(null);
+    setHighlightFiles([]);
     setModalOpen(true);
   };
 
@@ -98,7 +103,16 @@ const YalsAdmin = () => {
       if (flyerFile) {
         flyerUrl = await uploadFileToStorage(`yals/flyers/${Date.now()}-${flyerFile.name}`, flyerFile);
       }
-      const payload = { ...form, flyerUrl };
+      const uploadedHighlights = await Promise.all(
+        highlightFiles.map((file, index) =>
+          uploadFileToStorage(`yals/highlights/${Date.now()}-${index}-${file.name}`, file)
+        )
+      );
+      const payload = {
+        ...form,
+        flyerUrl,
+        highlightImages: [...form.highlightImages, ...uploadedHighlights],
+      };
 
       if (form.isLive) {
         await Promise.all(
@@ -222,6 +236,53 @@ const YalsAdmin = () => {
               <img src={form.flyerUrl} alt="" className="mt-2 h-24 rounded-lg object-cover" />
             )}
           </label>
+          <div>
+            <p className={labelClass}>Event highlight photos <span className="font-normal text-slate-500">(optional)</span></p>
+            <p className="mb-2 text-xs text-slate-500">
+              Add photos from this summit. You can add highlights now or edit them after the event.
+            </p>
+            <input
+              type="file"
+              accept="image/*"
+              multiple
+              className="text-sm text-slate-400"
+              onChange={(e) => setHighlightFiles((files) => [...files, ...Array.from(e.target.files || [])])}
+            />
+            {form.highlightImages.length > 0 && (
+              <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
+                {form.highlightImages.map((imageUrl, index) => (
+                  <div key={`${imageUrl}-${index}`} className="relative">
+                    <img src={imageUrl} alt={`Summit highlight ${index + 1}`} className="aspect-[4/3] w-full rounded-lg object-cover" />
+                    <button
+                      type="button"
+                      onClick={() => setForm({ ...form, highlightImages: form.highlightImages.filter((_, imageIndex) => imageIndex !== index) })}
+                      className="absolute right-2 top-2 rounded-full bg-black/75 px-2 py-1 text-xs font-semibold text-white hover:bg-red-600"
+                      aria-label={`Remove summit highlight ${index + 1}`}
+                    >
+                      Remove
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
+            {highlightFiles.length > 0 && (
+              <ul className="mt-3 space-y-1 text-xs text-slate-400">
+                {highlightFiles.map((file, index) => (
+                  <li key={`${file.name}-${index}`} className="flex items-center justify-between gap-3">
+                    <span className="truncate">{file.name}</span>
+                    <button
+                      type="button"
+                      onClick={() => setHighlightFiles((files) => files.filter((_, fileIndex) => fileIndex !== index))}
+                      className="shrink-0 text-red-400 hover:underline"
+                      aria-label={`Remove selected file ${file.name}`}
+                    >
+                      Remove
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
           <div>
             <p className={labelClass}>Description</p>
             <RichTextEditor value={form.description} onChange={(v) => setForm({ ...form, description: v })} />

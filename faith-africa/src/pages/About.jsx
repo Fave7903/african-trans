@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import buildAfrica from '../assets/build_africa.jpg';
 import capacity from '../assets/capacity.jpg';
 import leadership from '../assets/leadership.jpg';
-import excos from '../assets/atn_excos_updated.jpg';
 import { teamData, servantLeadershipExcerpt } from '../data/teamData';
 
 const pillars = [
@@ -61,10 +60,6 @@ const About = () => (
           <p className="mt-3 text-sm text-slate-300 leading-6">{member.bio}</p>
         </article>
       ))}
-    </section>
-
-    <section className="mt-16 overflow-hidden rounded-[2rem] border border-brand-border">
-      <img src={excos} alt="ATN Executive Board" className="w-full object-cover" />
     </section>
 
     <section className="mt-16 grid gap-8 lg:grid-cols-3">
