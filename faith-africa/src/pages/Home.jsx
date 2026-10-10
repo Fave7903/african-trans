@@ -244,9 +244,9 @@ const Home = () => {
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
 
-          <MetricCard end={12} label="African Countries Impacted" />
+          <MetricCard end={9} label="African Countries Impacted" />
 
-          <MetricCard end={850} suffix="+" label="Emerging Leaders Trained" />
+          <MetricCard end={850} suffix="+" label="Emerging Leaders Reached" />
 
           <MetricCard end={45} suffix="+" label="Strategic Masterclasses & Summits" />
 
